@@ -30,4 +30,8 @@ export class AppComponent {
   jumpTodo = () => {
     this.router.navigate(['/todo']);
   }
+
+  jumpToReactiveForm = () => {
+    this.router.navigate(['/react-form']);
+  }
 }
