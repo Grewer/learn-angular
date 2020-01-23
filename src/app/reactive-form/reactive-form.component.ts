@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
   profileForm = this.fb.group({
-    firstName: [''],
+    firstName: ['', Validators.required],
     lastName: [''],
     address: this.fb.group({
       street: [''],
@@ -16,7 +16,18 @@ export class ReactiveFormComponent implements OnInit {
       state: [''],
       zip: ['']
     }),
+    aliases: this.fb.array([
+      this.fb.control('')
+    ])
   });
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
 
   updateProfile() {
     /**
