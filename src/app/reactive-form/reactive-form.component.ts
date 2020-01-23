@@ -18,6 +18,17 @@ export class ReactiveFormComponent implements OnInit {
     })
   });
 
+  updateProfile() {
+    /**
+     * 修改表单的值
+     */
+    this.profileForm.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
+  }
 
   constructor() {
   }
