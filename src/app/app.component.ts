@@ -34,4 +34,8 @@ export class AppComponent {
   jumpToReactiveForm = () => {
     this.router.navigate(['/react-form']);
   }
+
+  jumpToTemplateForm = () => {
+    this.router.navigate(['/template-form']);
+  }
 }
